@@ -1,0 +1,38 @@
+## pushstate redirect
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 86400 = 1d
+# 604800 = 7d
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    cache-control = '''
+    max-age=86400,
+    must-revalidate
+    '''
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    cache-control = '''
+    max-age=86400,
+    must-revalidate
+    '''
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    cache-control = '''
+    max-age=86400,
+    must-revalidate
+    '''
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = '''
+    web-share="https://lending-sim.netlify.app"'''
