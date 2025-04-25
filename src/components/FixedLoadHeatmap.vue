@@ -14,6 +14,7 @@ import NumberUtil from 'src/util/number-util';
 interface Props {
   name: string;
   values: FixedLoad[];
+  mode: 'installment' | 'total';
 }
 
 const props = defineProps<Props>();
@@ -38,11 +39,11 @@ function load(data: Props) {
   const values = data.values.map((v) => [
     xAxis.indexOf(v.years),
     yAxis.indexOf(v.interestRate),
-    FixedLoadUtil.installmentAmount(v),
+    data.mode === 'installment' ? FixedLoadUtil.installmentAmount(v) : FixedLoadUtil.totalAmount(v),
   ]);
 
-  const max = Math.max(...data.values.map((e) => FixedLoadUtil.installmentAmount(e)));
-  const min = Math.min(...data.values.map((e) => FixedLoadUtil.installmentAmount(e)));
+  const max = Math.max(...values.map((e) => e[2] as number));
+  const min = Math.min(...values.map((e) => e[2] as number));
 
   const option = {
     tooltip: {

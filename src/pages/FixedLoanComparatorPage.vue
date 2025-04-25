@@ -31,6 +31,14 @@
               :x-axis="interestRates"
               :y-axis="years"
               :values="values"
+              mode="installment"
+            />
+            <FixedLoadHeatmap
+              name="Total"
+              :x-axis="interestRates"
+              :y-axis="years"
+              :values="values"
+              mode="total"
             />
           </q-tab-panel>
         </q-tab-panels>
