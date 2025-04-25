@@ -1,6 +1,10 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <q-input label="Amount" v-model.number="amount" type="number" />
+    <InterestRatesInput
+      :init-rates="interestRates"
+      @update="updateInterestRates"
+    ></InterestRatesInput>
     <FixedLoadTable :entries="values"></FixedLoadTable>
   </q-page>
 </template>
@@ -9,6 +13,7 @@
 import { computed, ref } from 'vue';
 import FixedLoadUtil from 'src/util/fixed-load-util';
 import FixedLoadTable from 'src/components/FixedLoadTable.vue';
+import InterestRatesInput from 'src/components/InterestRatesInput.vue';
 
 const amount = ref<number>(200000);
 const yearlyInstallments = ref<number>(12);
@@ -23,4 +28,8 @@ const values = computed(() =>
     years.value,
   ),
 );
+
+function updateInterestRates(newRates: number[]): void {
+  interestRates.value = newRates;
+}
 </script>
