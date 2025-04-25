@@ -1,5 +1,13 @@
 <template>
-  <q-table :columns="columns" :rows="entries"> </q-table>
+  <q-table
+    :columns="columns"
+    :rows="entries"
+    binary-state-sort
+    column-sort-order="ad"
+    :pagination="{ sortBy: 'installmentAmount', rowsPerPage: 20 }"
+    :rows-per-page-options="[5, 10, 25, 50, 0]"
+  >
+  </q-table>
 </template>
 
 <script setup lang="ts">
