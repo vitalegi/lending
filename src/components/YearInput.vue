@@ -1,7 +1,7 @@
 <template>
   <q-input
-    label="Percentage (%)"
-    v-model.number="rateValue"
+    label="Years"
+    v-model.number="yearValue"
     type="number"
     clearable
     @update:model-value="update"
@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
 
-const rateValue = ref<number>();
+const yearValue = ref<number>();
 
 export interface Props {
   initValue: number;
@@ -24,7 +24,7 @@ const props = defineProps<Props>();
 const emit = defineEmits(['update', 'remove']);
 
 onBeforeMount(() => {
-  rateValue.value = props.initValue * 100;
+  yearValue.value = props.initValue;
 });
 
 function update(newValue: string | number | null): void {
@@ -32,15 +32,14 @@ function update(newValue: string | number | null): void {
     return;
   }
   if (typeof newValue === 'string') {
-    pushValue(parseFloat(newValue));
+    pushValue(parseInt(newValue, 10));
   } else {
     pushValue(newValue);
   }
 }
 
 function pushValue(newValue: number): void {
-  const v = newValue / 100;
-  emit('update', v);
+  emit('update', newValue);
 }
 
 function onClear(): void {

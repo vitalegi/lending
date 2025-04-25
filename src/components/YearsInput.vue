@@ -1,15 +1,15 @@
 <template>
   <q-card>
     <q-card-section class="row q-pa-xs">
-      <div>Interest Rates</div>
+      <div># Years</div>
       <q-space />
       <q-btn round color="primary" icon="add" @click="add" />
     </q-card-section>
     <q-card-section>
-      <InterestRateInput
-        v-for="(rate, index) of rates"
-        :key="index + '_' + rate"
-        :init-value="rate"
+      <YearInput
+        v-for="(year, index) of years"
+        :key="index + '_' + year"
+        :init-value="year"
         @update="(v) => update(index, v)"
         @remove="() => remove(index)"
       />
@@ -19,33 +19,33 @@
 
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
-import InterestRateInput from './InterestRateInput.vue';
+import YearInput from './YearInput.vue';
 
 export interface Props {
   initValues: number[];
 }
 
 const props = defineProps<Props>();
-const rates = ref<number[]>([]);
+const years = ref<number[]>([]);
 
 const emit = defineEmits(['update']);
 
 onBeforeMount(() => {
-  rates.value = props.initValues;
+  years.value = props.initValues;
 });
 
 function update(index: number, value: number): void {
-  rates.value[index] = value;
-  emit('update', rates.value);
+  years.value[index] = value;
+  emit('update', years.value);
 }
 
 function remove(index: number): void {
-  rates.value.splice(index, 1);
-  emit('update', rates.value);
+  years.value.splice(index, 1);
+  emit('update', years.value);
 }
 
 function add(): void {
-  rates.value.push(0.0125);
-  emit('update', rates.value);
+  years.value.push(20);
+  emit('update', years.value);
 }
 </script>
