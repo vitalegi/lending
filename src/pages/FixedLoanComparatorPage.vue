@@ -1,13 +1,13 @@
 <template>
   <q-page class="full-width full-height">
-    <div class="q-pa-md row justify-start items-start">
-      <q-card class="col-12">
-        <q-card-section>
+    <div class="q-pa-xs row justify-start items-start">
+      <div class="col-12 q-pa-xs">
+        <div class="q-gutter-md">
           <q-input label="Amount" v-model.number="amount" type="number" />
           <InterestRatesInput :initValues="interestRates" @update="updateInterestRates" flat />
           <YearsInput :initValues="years" @update="updateYears" flat />
-        </q-card-section>
-      </q-card>
+        </div>
+      </div>
       <div class="col-12">
         <q-option-group
           v-model="panel"

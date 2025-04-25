@@ -67,8 +67,9 @@ function load(data: Props) {
       },
       axisLabel: {
         formatter: function (value: number) {
-          return NumberUtil.DECIMAL_FORMATTER.format(100 * value) + '%';
+          return NumberUtil.DECIMAL_FORMATTER.format(100 * value);
         },
+        rotate: 45,
       },
     },
     visualMap: {
@@ -129,6 +130,6 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .chart {
   width: 100%;
-  height: 200px;
+  height: 400px;
 }
 </style>

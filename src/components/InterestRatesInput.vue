@@ -46,7 +46,7 @@ const emit = defineEmits(['update']);
 function formatPercentage(value: string) {
   try {
     const v = parseFloat(value) * 100;
-    return NumberUtil.DECIMAL_FORMATTER.format(v) + '%';
+    return NumberUtil.DECIMAL_FORMATTER.format(v);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     return 'err';
