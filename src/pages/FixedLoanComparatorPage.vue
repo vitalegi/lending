@@ -21,21 +21,18 @@ import YearsInput from 'src/components/YearsInput.vue';
 const amount = ref<number>(200000);
 const yearlyInstallments = ref<number>(12);
 const interestRates = ref<string[]>(['0.02', '0.04', '0.06']);
-const years = ref<number[]>([15, 20, 25]);
+const years = ref<string[]>(['15', '20', '25']);
 
-const values = computed(() =>
-  FixedLoadUtil.generateInputs(
-    amount.value,
-    yearlyInstallments.value,
-    interestRates.value.map(parseFloat),
-    years.value,
-  ),
-);
+const values = computed(() => {
+  const ir = interestRates.value ? interestRates.value.map(parseFloat) : [];
+  const y = years.value ? years.value.map((v) => parseInt(v, 10)) : [];
+  return FixedLoadUtil.generateInputs(amount.value, yearlyInstallments.value, ir, y);
+});
 
 function updateInterestRates(newValues: string[]): void {
   interestRates.value = newValues;
 }
-function updateYears(newValues: number[]): void {
+function updateYears(newValues: string[]): void {
   years.value = newValues;
 }
 </script>
