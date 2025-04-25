@@ -1,51 +1,68 @@
 <template>
-  <q-card>
-    <q-card-section class="row q-pa-xs">
-      <div># Years</div>
-      <q-space />
-      <q-btn round color="primary" icon="add" @click="add" />
-    </q-card-section>
-    <q-card-section>
-      <YearInput
-        v-for="(year, index) of years"
-        :key="index + '_' + year"
-        :init-value="year"
-        @update="(v) => update(index, v)"
-        @remove="() => remove(index)"
-      />
-    </q-card-section>
-  </q-card>
+  <q-select
+    filled
+    v-model="model"
+    multiple
+    emit-value
+    use-chips
+    use-input
+    new-value-mode="add-unique"
+    @new-value="newValue"
+    stack-label
+    label="Year"
+    @update:model-value="update"
+  >
+    <template v-slot:selected-item="scope">
+      <q-chip
+        dense
+        square
+        removable
+        @remove="scope.removeAtIndex(scope.index)"
+        :tabindex="scope.tabindex"
+        color="white"
+        text-color="primary"
+        class="q-my-none q-ml-xs q-mr-none"
+      >
+        {{ scope.opt }}
+      </q-chip>
+      <q-badge v-if="model.length === 0">*none*</q-badge>
+    </template>
+  </q-select>
 </template>
 
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
-import YearInput from './YearInput.vue';
 
 export interface Props {
-  initValues: number[];
+  initValues: string[];
 }
 
 const props = defineProps<Props>();
-const years = ref<number[]>([]);
+const model = ref<string[]>([]);
 
 const emit = defineEmits(['update']);
 
 onBeforeMount(() => {
-  years.value = props.initValues;
+  model.value = props.initValues;
 });
 
-function update(index: number, value: number): void {
-  years.value[index] = value;
-  emit('update', years.value);
+function newValue(
+  newValue: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  doneFn: (item?: any, mode?: 'add' | 'add-unique' | 'toggle') => void,
+) {
+  try {
+    const v = parseInt(newValue, 10);
+    if (v > 0) {
+      doneFn(`${v}`);
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    console.debug('Not a number: ', newValue);
+  }
 }
 
-function remove(index: number): void {
-  years.value.splice(index, 1);
-  emit('update', years.value);
-}
-
-function add(): void {
-  years.value.push(20);
-  emit('update', years.value);
+function update(): void {
+  emit('update', model.value);
 }
 </script>

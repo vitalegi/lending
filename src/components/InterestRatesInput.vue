@@ -1,12 +1,11 @@
 <template>
   <q-select
     filled
-    v-model="rates"
+    v-model="model"
     multiple
     emit-value
     use-chips
     use-input
-    clearable
     new-value-mode="add-unique"
     @new-value="newValue"
     stack-label
@@ -26,7 +25,7 @@
       >
         {{ formatPercentage(scope.opt) }}
       </q-chip>
-      <q-badge v-if="rates.length === 0">*none*</q-badge>
+      <q-badge v-if="model.length === 0">*none*</q-badge>
     </template>
   </q-select>
 </template>
@@ -40,7 +39,7 @@ export interface Props {
 }
 
 const props = defineProps<Props>();
-const rates = ref<string[]>([]);
+const model = ref<string[]>([]);
 
 const emit = defineEmits(['update']);
 
@@ -55,7 +54,7 @@ function formatPercentage(value: string) {
 }
 
 onBeforeMount(() => {
-  rates.value = props.initValues;
+  model.value = props.initValues;
 });
 
 function newValue(
@@ -76,6 +75,6 @@ function newValue(
 }
 
 function update(): void {
-  emit('update', rates.value);
+  emit('update', model.value);
 }
 </script>
