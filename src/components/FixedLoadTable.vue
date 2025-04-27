@@ -14,6 +14,7 @@
 import FixedLoadUtil from 'src/util/fixed-load-util';
 import type { FixedLoad } from './models';
 import NumberUtil from 'src/util/number-util';
+import { useI18n } from 'vue-i18n';
 
 export interface Props {
   entries: FixedLoad[];
@@ -21,11 +22,13 @@ export interface Props {
 
 withDefaults(defineProps<Props>(), { entries: () => [] });
 
+const i18n = useI18n();
+
 const columns = [
   {
     name: 'interestRate',
     required: true,
-    label: 'Interest Rate',
+    label: i18n.t('lending.fixed.tableView.headers.interestRate'),
     field: (row: FixedLoad) => row.interestRate,
     format: (val: number) => NumberUtil.DECIMAL_FORMATTER.format(val * 100),
     sortable: true,
@@ -33,7 +36,7 @@ const columns = [
   {
     name: 'years',
     required: true,
-    label: 'Years',
+    label: i18n.t('lending.fixed.tableView.headers.years'),
     field: (row: FixedLoad) => row.years,
     format: (val: number) => NumberUtil.INTEGER_FORMATTER.format(val),
     sortable: true,
@@ -41,7 +44,7 @@ const columns = [
   {
     name: 'installmentAmount',
     required: true,
-    label: 'Installment',
+    label: i18n.t('lending.fixed.tableView.headers.installmentAmount'),
     field: (row: FixedLoad) => FixedLoadUtil.installmentAmount(row),
     format: (val: number) => NumberUtil.INTEGER_FORMATTER.format(val),
     sortable: true,
@@ -49,7 +52,7 @@ const columns = [
   {
     name: 'totalAmount',
     required: true,
-    label: 'Total Amount',
+    label: i18n.t('lending.fixed.tableView.headers.totalAmount'),
     field: (row: FixedLoad) => FixedLoadUtil.totalAmount(row),
     format: (val: number) => NumberUtil.INTEGER_FORMATTER.format(val),
     sortable: true,
