@@ -3,7 +3,7 @@
     <div class="q-pa-xs row justify-start items-start">
       <div class="col-12 q-pa-xs">
         <div class="q-gutter-md">
-          <q-input label="Amount" v-model.number="amount" type="number" />
+          <q-input :label="$t('input.amount.label')" v-model.number="amount" type="number" />
           <InterestRatesInput :initValues="interestRates" @update="updateInterestRates" flat />
           <YearsInput :initValues="years" @update="updateYears" flat />
         </div>
@@ -13,19 +13,19 @@
           v-model="panel"
           inline
           :options="[
-            { label: 'Heatmap', value: 'heatmap' },
-            { label: 'Table', value: 'table' },
+            { label: $t('lending.fixed.heatmapView.title'), value: 'heatmap' },
+            { label: $t('lending.fixed.tableView.title'), value: 'table' },
           ]"
         />
 
         <q-tab-panels v-model="panel" animated class="shadow-2 rounded-borders">
           <q-tab-panel name="table">
-            <div class="text-h6">Table</div>
+            <div class="text-h6">{{ $t('lending.fixed.tableView.title') }}</div>
             <FixedLoadTable :entries="values"></FixedLoadTable>
           </q-tab-panel>
 
           <q-tab-panel name="heatmap">
-            <div class="text-h6">Heatmap</div>
+            <div class="text-h6">{{ $t('lending.fixed.heatmapView.interestRates.title') }}</div>
             <FixedLoadHeatmap
               name="Installments"
               :x-axis="interestRates"
@@ -33,6 +33,7 @@
               :values="values"
               mode="installment"
             />
+            <div class="text-h6">{{ $t('lending.fixed.heatmapView.totalAmount.title') }}</div>
             <FixedLoadHeatmap
               name="Total"
               :x-axis="interestRates"

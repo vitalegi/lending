@@ -9,7 +9,7 @@
     new-value-mode="add-unique"
     @new-value="newValue"
     stack-label
-    label="Year"
+    :label="$t('input.years.label')"
     @update:model-value="update"
   >
     <template v-slot:selected-item="scope">

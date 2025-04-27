@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Lending simulator </q-toolbar-title>
+        <q-toolbar-title> {{ $t('siteName') }} </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -23,11 +23,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
+import { useI18n } from 'vue-i18n';
+
+const i18n = useI18n();
 
 const linksList: EssentialLinkProps[] = [
   {
-    title: 'Fixed',
-    caption: 'Fixed lendings',
+    title: i18n.t('navbar.fixedLending.title'),
+    caption: i18n.t('navbar.fixedLending.caption'),
     icon: 'school',
     route: '/fixed',
   },
