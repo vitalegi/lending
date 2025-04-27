@@ -10,6 +10,9 @@ export default {
       caption: 'About the project',
     },
   },
+  footer: {
+    text: "If this site has been useful to you, you can support us by following this little guy's Instagram page",
+  },
   lending: {
     fixed: {
       heatmapView: {
