@@ -5,6 +5,10 @@ export default {
       title: 'Tasso fisso',
       caption: 'Prestiti a tasso fisso',
     },
+    aboutMe: {
+      title: 'About me',
+      caption: 'A proposito del progetto',
+    },
   },
   lending: {
     fixed: {
@@ -37,6 +41,19 @@ export default {
     },
     years: {
       label: 'Durata (anni)',
+    },
+  },
+  aboutMe: {
+    title: 'Il Nostro Team',
+    subtitle:
+      'Questo sito è sviluppato e gestito dal nostro team di esperti, Leader di un sacco di settori.',
+    pinco: {
+      name: 'Princimicio',
+      role: 'CEO',
+    },
+    vitalegi: {
+      name: 'Giorgio Vitale',
+      role: 'Aiutante',
     },
   },
 };

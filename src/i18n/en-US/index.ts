@@ -5,6 +5,10 @@ export default {
       title: 'Fixed',
       caption: 'Fixed Lending',
     },
+    aboutMe: {
+      title: 'About me',
+      caption: 'About the project',
+    },
   },
   lending: {
     fixed: {
@@ -37,6 +41,19 @@ export default {
     },
     years: {
       label: 'Duration (Years)',
+    },
+  },
+  aboutMe: {
+    title: 'Ours Team',
+    subtitle:
+      'This website is developed and managed by our experts, that are Leaders in a multitude of sectors.',
+    pinco: {
+      name: 'Princimicio',
+      role: 'CEO',
+    },
+    vitalegi: {
+      name: 'Giorgio Vitale',
+      role: 'Helper',
     },
   },
 };

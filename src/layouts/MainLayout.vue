@@ -34,6 +34,12 @@ const linksList: EssentialLinkProps[] = [
     icon: 'school',
     route: '/fixed',
   },
+  {
+    title: i18n.t('navbar.aboutMe.title'),
+    caption: i18n.t('navbar.aboutMe.caption'),
+    icon: 'contact_page',
+    route: '/about',
+  },
 ];
 
 const leftDrawerOpen = ref(false);
