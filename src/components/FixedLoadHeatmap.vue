@@ -26,7 +26,7 @@ let chart: echarts.ECharts | undefined = undefined;
 
 function load(data: Props) {
   if (!chart) {
-    chart = echarts.init(chartRef.value);
+    chart = echarts.init(chartRef.value, null, { renderer: 'svg' });
   }
 
   const xAxis = ArrayUtil.distinct(data.values.map((v) => v.years)).sort((a, b) =>
