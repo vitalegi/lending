@@ -10,6 +10,9 @@ export default {
       caption: 'A proposito del progetto',
     },
   },
+  footer: {
+    text: 'Se hai trovato utile questo sito, puoi supportarci seguendo la pagina Instagram di questo tipino',
+  },
   lending: {
     fixed: {
       heatmapView: {

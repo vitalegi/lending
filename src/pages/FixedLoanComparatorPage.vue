@@ -45,6 +45,7 @@
         </q-tab-panels>
       </div>
     </div>
+    <SponsorSpace class="col-12" />
   </q-page>
 </template>
 
@@ -52,6 +53,7 @@
 import { computed, ref } from 'vue';
 import FixedLoadUtil from 'src/util/fixed-load-util';
 import FixedLoadTable from 'src/components/FixedLoadTable.vue';
+import SponsorSpace from 'src/components/SponsorSpace.vue';
 import InterestRatesInput from 'src/components/InterestRatesInput.vue';
 import YearsInput from 'src/components/YearsInput.vue';
 import FixedLoadHeatmap from 'src/components/FixedLoadHeatmap.vue';
