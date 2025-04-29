@@ -1,6 +1,6 @@
 <template>
   <q-select
-    filled
+    outlined
     v-model="model"
     multiple
     emit-value

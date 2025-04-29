@@ -3,7 +3,13 @@
     <div class="q-pa-xs row justify-start items-start">
       <div class="col-12 q-pa-xs">
         <div class="q-gutter-md">
-          <q-input :label="$t('input.amount.label')" v-model.number="amount" type="number" />
+          <q-input
+            :label="$t('input.amount.label')"
+            v-model.number="amount"
+            type="number"
+            outlined
+            stack-label
+          />
           <InterestRatesInput :initValues="interestRates" @update="updateInterestRates" flat />
           <YearsInput :initValues="years" @update="updateYears" flat />
         </div>
