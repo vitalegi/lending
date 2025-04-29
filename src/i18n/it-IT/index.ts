@@ -11,7 +11,7 @@ export default {
     },
   },
   footer: {
-    text: 'Se hai trovato utile questo sito, puoi supportarci seguendo la pagina Instagram di questo tipino',
+    text: 'Se hai trovato utile questo sito, puoi supportarci seguendoci',
   },
   lending: {
     fixed: {

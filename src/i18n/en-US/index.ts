@@ -11,7 +11,7 @@ export default {
     },
   },
   footer: {
-    text: "If this site has been useful to you, you can support us by following this little guy's Instagram page",
+    text: 'If this site has been useful to you, you can support by following us',
   },
   lending: {
     fixed: {

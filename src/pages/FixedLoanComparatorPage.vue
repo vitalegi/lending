@@ -1,6 +1,7 @@
 <template>
   <q-page class="full-width full-height">
     <div class="q-pa-xs row justify-start items-start">
+      <SponsorSpace class="col-12" />
       <div class="col-12 q-pa-xs">
         <div class="q-gutter-md">
           <q-input
@@ -51,7 +52,6 @@
         </q-tab-panels>
       </div>
     </div>
-    <SponsorSpace class="col-12" />
   </q-page>
 </template>
 
