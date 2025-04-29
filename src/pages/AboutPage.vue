@@ -1,8 +1,8 @@
 <template>
   <q-page class="full-width full-height text-center">
     <div class="q-pa-md row justify-center items-start">
-      <div class="col-12 title">{{ $t('aboutMe.title') }}</div>
-      <div class="col-12 q-pa-xs subtitle">{{ $t('aboutMe.subtitle') }}</div>
+      <h1 class="col-12">{{ $t('aboutMe.title') }}</h1>
+      <div class="col-12 q-pa-xs text-subtitle1">{{ $t('aboutMe.subtitle') }}</div>
       <div class="col-12 row q-gutter-md justify-center">
         <AboutMeCard
           :name="$t('aboutMe.pinco.name')"
@@ -33,19 +33,4 @@
 import AboutMeCard from 'src/components/AboutMeCard.vue';
 </script>
 
-<style scoped lang="scss">
-.title {
-  margin-top: 100px;
-  font-size: 5rem;
-  font-weight: 300;
-  line-height: 5rem;
-  letter-spacing: 0.00937em;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  font-weight: 350;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -21,7 +21,7 @@ export default {
           title: 'Confronto Rate',
         },
         totalAmount: {
-          title: 'Confronto Spesa Totale',
+          title: 'Confronto Totale',
         },
       },
       tableView: {

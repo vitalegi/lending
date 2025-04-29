@@ -26,12 +26,12 @@
 
         <q-tab-panels v-model="panel" animated class="shadow-2 rounded-borders">
           <q-tab-panel name="table">
-            <div class="text-h6">{{ $t('lending.fixed.tableView.title') }}</div>
+            <div class="text-h2">{{ $t('lending.fixed.tableView.title') }}</div>
             <FixedLoadTable :entries="values"></FixedLoadTable>
           </q-tab-panel>
 
           <q-tab-panel name="heatmap">
-            <div class="text-h6">{{ $t('lending.fixed.heatmapView.interestRates.title') }}</div>
+            <div class="text-h2">{{ $t('lending.fixed.heatmapView.interestRates.title') }}</div>
             <FixedLoadHeatmap
               name="Installments"
               :x-axis="interestRates"
@@ -39,7 +39,7 @@
               :values="values"
               mode="installment"
             />
-            <div class="text-h6">{{ $t('lending.fixed.heatmapView.totalAmount.title') }}</div>
+            <div class="text-h2">{{ $t('lending.fixed.heatmapView.totalAmount.title') }}</div>
             <FixedLoadHeatmap
               name="Total"
               :x-axis="interestRates"

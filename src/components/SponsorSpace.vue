@@ -14,14 +14,6 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-.title {
-  margin-top: 100px;
-  font-size: 5rem;
-  font-weight: 300;
-  line-height: 5rem;
-  letter-spacing: 0.00937em;
-}
-
 .box {
   background: #1e8fff;
   color: white;
