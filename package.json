@@ -36,7 +36,7 @@
     "@types/node": "^22.15.30",
     "@intlify/unplugin-vue-i18n": "^4.0.0",
     "@quasar/app-vite": "^2.4.0",
-    "autoprefixer": "^10.4.2",
+    "autoprefixer": "^10.4.22",
     "typescript": "~5.8.3"
   },
   "engines": {
